@@ -146,7 +146,7 @@ body {
   padding-top: 25px;
   
 }
-.carousel-row .col-12{
+.carousel-row>.col-12{
   padding-right: 0;padding-left: 0;
 }
 
@@ -240,4 +240,31 @@ body {
 #carousel-featured .carousel-control-next{
   color: #868686;
   font-size: 20px;
+}
+
+#store-features{
+  box-shadow: 0 0 15px #eef0ea;
+  position:relative;
+  top: -30px;
+  background-image: url(../images/bg_features.png);
+  background-repeat: no-repeat;
+    background-color: #fff;
+  padding-bottom: 35px;
+  padding-top: 25px;
+  background-size: auto 60%;
+  background-position: -10px -20px;
+}
+/* only the direct img not any other one */
+#store-features .features>img{
+  height: 40px;
+  margin-bottom: 10px;
+}
+/* the elemnt that have the class feature and the other on a row */
+#store-features .features+.features{
+border-right: 1px solid #eef0ea;
+}
+
+h3.custom-heading{
+  font-size: 24px;
+  margin-bottom: 25px;
 }

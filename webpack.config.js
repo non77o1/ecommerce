@@ -13,6 +13,7 @@ module.exports = {
     path: path.join(__dirname, "/dist"),
     publicPath: '/',
     filename: "main.js",
+    assetModuleFilename: 'images/[name][ext]'
   },
 
   mode: "development",
@@ -44,33 +45,7 @@ module.exports = {
         ],
       },
 
-      {
-        test: /\.(sa|sc|c)ss$/,
-        use: [
-          {
-            loader: MiniCssExtractPlugin.loader,
-            options: {
-              publicPath: "../",
-            },
-          },
-          "css-loader",
-        ],
-      },
-
-      {
-        test: /\.(png|svg|jpe?g|gif)$/,
-
-        use: [
-          {
-            loader: "file-loader",
-
-            options: {
-              name: "[name].[ext]",
-              outputPath: "images",
-            },
-          },
-        ],
-      },
+      
 
       {
         test: require.resolve("jquery"),
@@ -80,30 +55,25 @@ module.exports = {
         },
       },
 
-      // {
-      //   test: /\.(svg|eot|woff|woff2|ttf)$/,
+      {
+        test: /\.css$/i,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader, 
+            options: {
+              publicPath: '../' 
+            }
+          },
+          'css-loader'
+        ]
+      },
 
-      //   use: [
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+          type: 'asset/resource',
+      },
 
-      //     {
-
-      //       loader: "file-loader", 
-
-      //       options: {
-
-      //         name: '[name].[ext]',
-
-      //         outputPath: "fonts",
-
-      //         esModule: false,
-
-      //       }
-
-      //     }
-
-      //   ]
-
-      // },
+   
     ],
   },
 
